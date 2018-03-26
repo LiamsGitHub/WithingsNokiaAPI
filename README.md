@@ -7,9 +7,9 @@ The dataset is available via a set of APIs. Authorization is via OAuth1.0
 I put together a Python class library for the authorization steps and data access for use as a module in an Alexa project on Lambda.
 
 Usage:
-
-`client = WithingsClient(userid, oauth_token, access_token_secret, oauth_callback, oauth_consumer_key, oauth_consumer_secret)`
-
+```
+client = WithingsClient(userid, oauth_token, access_token_secret, oauth_callback, oauth_consumer_key, oauth_consumer_secret)`
+```
 Pass parameters are all string values where:
 
 - userid: Withings-issued user ID for the customer. If none yet, pass “”
@@ -52,9 +52,9 @@ Operation was successful
 [‘2017-03-21 07:11:46’, ‘Weight’, 81.013, ‘kg’]
 [‘2017-03-21 07:11:46’, ‘Fat mass weight’, 15.444, ‘kg’]
 ```
-Developer documentation is here.
+Developer documentation is [here](https://developer.health.nokia.com/api).
 
-To get a Developer Key, your “app” needs to be registered in a Withings Nokia Developer account available here.
+To get a Developer Key, your “app” needs to be registered in a Withings Nokia Developer account available [here](https://developer.health.nokia.com/partner/dashboard).
 
 The most useful page on the Developer site is the OAuth test mechanism which you can use step by step through the OAuth process to see how URLs, base signature and secret is built. Without this, I would likely not have got my code to work….
 https://developer.health.nokia.com/api#step1
@@ -70,10 +70,12 @@ URL: http://api.health.nokia.com/measure?action=getmeas&oauth_consumer_key= …e
 ```
 Issue#2: the ‘&’ in call is not URL encoded like the rest of the base secret.
 
-For example, this works:```
+For example, this works:
+```
 GET&http%3A%2F%2Fapi.health.nokia.com%2Fmeasure&action%3Dgetmeas%26oauth_consumer_key …etc
 ```
-but this does not:```
+but this does not:
+```
 GET&http%3A%2F%2Fapi.health.nokia.com%2Fmeasure%26action%3Dgetmeas&oauth_consumer_key ….etc
 ```
 (2) Tinkering…
