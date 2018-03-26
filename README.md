@@ -7,7 +7,7 @@ The dataset is available via a set of APIs. Authorization is via OAuth1.0
 I put together a Python class library for the authorization steps and data access for use as a module in an Alexa project on Lambda.
 
 Usage:
-client = WithingsClient(userid, oauth_token, access_token_secret, oauth_callback, oauth_consumer_key, oauth_consumer_secret)
+'client = WithingsClient(userid, oauth_token, access_token_secret, oauth_callback, oauth_consumer_key, oauth_consumer_secret)'
 
 Pass parameters are all string values
 
@@ -22,11 +22,11 @@ oauth_consumer_secret: Developer secret as above
 If you pass “” for any of the token or secret values, this will trigger the OAuth authorization process.
 Once a class instance is obtained, usage is as follows:
 
-client.make_dates(“2017-03-01″,”2017-03-23”) # Sets query range. Format is yyyy-mm-dd. Start Date, End Date.
+'client.make_dates(“2017-03-01″,”2017-03-23”) # Sets query range. Format is yyyy-mm-dd. Start Date, End Date.
 status,data = client.body_measures() # Get weighing scale data (weight, fat mass etc) and blood pressure
 status,data = client.activity() # Get activity tracker data (steps etc)
 status,data = client.sleep() # Get sleep data from either wrist tracker or Aura sleep pad
-status, data = client.workout() # Get workout classification data
+status, data = client.workout() # Get workout classification data'
 
 Each of these return the data as a list of tuples or dictionaries like this:
 
